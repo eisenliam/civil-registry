@@ -33,6 +33,7 @@ export default function LoginPage() {
   const majorAngles = Array.from({ length: 8 }, (_, i) => i * 45);
   const minorAngles = Array.from({ length: 8 }, (_, i) => i * 45 + 22.5);
 
+    router.push('/add');
   function makeRayPoints(deg, innerR, outerR, halfBase) {
     const rad  = (deg - 90) * Math.PI / 180;
     const x1   = 100 + innerR * Math.cos(rad);
@@ -333,6 +334,25 @@ export default function LoginPage() {
             <div className="lr-tagline">Taas Noo Calumpiteño</div>
           </div>
 
+          {error ? <p className="text-sm text-red-600">{error}</p> : null}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white transition hover:bg-orange-700 disabled:cursor-not-allowed disabled:opacity-70"
+          >
+            {loading ? 'Signing in...' : 'Sign in'}
+          </button>
+        </form>
+
+        <div className="mt-6 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700">
+          <p className="font-semibold">Test accounts</p>
+          <ul className="mt-2 space-y-1">
+            <li>Uno / Munggosathursdayz</li>
+            <li>Dos / Munggosathursdayx</li>
+            <li>Tres / Munggosathursdayc</li>
+            <li>Quatro / Munggosathursdayv</li>
+          </ul>
           <div className="lr-footer">Republic of the Philippines</div>
         </div>
 
