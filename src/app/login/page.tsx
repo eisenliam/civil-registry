@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
 export default function LoginPage() {
+  const router = useRouter();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError]       = useState('');
@@ -22,12 +24,13 @@ export default function LoginPage() {
       body: JSON.stringify({ username, password }),
     });
     setLoading(false);
-    if (!response.ok) {
-      const data = await response.json();
+    const data = await response.json();
+    if (!response.ok || !data?.ok) {
       setError(data?.error ?? 'Login failed. Please try again.');
       return;
     }
-    // router.push('/') — add next/navigation router here
+
+    router.push('/dashboard');
   }
 
   const majorAngles = Array.from({ length: 8 }, (_, i) => i * 45);
