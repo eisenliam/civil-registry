@@ -29,7 +29,7 @@ export default function LoginPage() {
       return;
     }
 
-    router.push('/');
+    router.push('/add');
   }
 
   return (
@@ -80,10 +80,10 @@ export default function LoginPage() {
         <div className="mt-6 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700">
           <p className="font-semibold">Test accounts</p>
           <ul className="mt-2 space-y-1">
-            <li>admin / AdminPass123!</li>
-            <li>registrar / RegistrarPass123!</li>
-            <li>clerk / ClerkPass123!</li>
-            <li>viewer / ViewerPass123!</li>
+            <li>Uno / Munggosathursdayz</li>
+            <li>Dos / Munggosathursdayx</li>
+            <li>Tres / Munggosathursdayc</li>
+            <li>Quatro / Munggosathursdayv</li>
           </ul>
         </div>
       </div>
