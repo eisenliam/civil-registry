@@ -6,8 +6,12 @@ import { sessionOptions } from './src/lib/session';
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  if (pathname === '/') {
+    const loginUrl = new URL('/login', request.url);
+    return NextResponse.redirect(loginUrl);
+  }
+
   if (
-    pathname === '/' ||
     pathname === '/login' ||
     pathname.startsWith('/api/auth') ||
     pathname.startsWith('/_next') ||
