@@ -336,13 +336,7 @@ export default function LoginPage() {
         </div>
 
         <div className="mt-6 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700">
-          <p className="font-semibold">Test accounts</p>
-          <ul className="mt-2 space-y-1">
-            <li>Uno / Munggosathursdayz</li>
-            <li>Dos / Munggosathursdayx</li>
-            <li>Tres / Munggosathursdayc</li>
-            <li>Quatro / Munggosathursdayv</li>
-          </ul>
+
           <div className="lr-footer">Republic of the Philippines</div>
         </div>
 
