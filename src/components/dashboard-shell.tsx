@@ -53,9 +53,9 @@ export default function DashboardShell({ title, description, children }: Dashboa
   }
 
   return (
-    <div className="min-h-screen bg-slate-100 text-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-amber-50/30 to-slate-100 text-slate-900">
       <div className="mx-auto flex min-h-screen max-w-7xl flex-col lg:flex-row">
-        <aside className="w-full border-b border-amber-100 bg-gradient-to-br from-white to-amber-50/30 p-5 shadow-sm lg:w-80 lg:border-r lg:border-b-0">
+        <aside className="w-full border-b border-amber-100 bg-gradient-to-b from-white via-amber-50/20 to-slate-50/40 p-5 shadow-sm lg:w-80 lg:border-r lg:border-b-0">
           <style>{`
             @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Syne:wght@600;700;800&display=swap');
             .font-syne { font-family: 'Syne', sans-serif; }
@@ -69,14 +69,16 @@ export default function DashboardShell({ title, description, children }: Dashboa
           </div>
 
           <nav className="space-y-2">
-            {navItems.map((item) => (
+            {navItems.map((item, idx) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`block rounded-2xl border px-4 py-3 text-sm transition ${
+                className={`block rounded-2xl border pl-4 px-4 py-3 text-sm transition relative before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:rounded-l-2xl ${
                   isActive(item.href)
-                    ? 'border-amber-300 bg-amber-50/50 text-slate-900 shadow-sm hover:shadow-md'
-                    : 'border-transparent text-slate-700 hover:border-amber-200 hover:bg-amber-50/30'
+                    ? 'border-amber-300 bg-gradient-to-r from-amber-50/80 to-amber-50/30 text-slate-900 shadow-sm hover:shadow-md before:bg-amber-500'
+                    : idx % 2 === 0
+                    ? 'border-transparent text-slate-700 hover:border-amber-200 hover:bg-amber-50/20 before:bg-amber-300/30 group-hover:before:bg-amber-300'
+                    : 'border-transparent text-slate-700 hover:border-slate-200 hover:bg-slate-50/40 before:bg-slate-300/30 group-hover:before:bg-slate-300'
                 }`}
               >
                 <div className="font-bold font-syne">{item.label}</div>
@@ -85,15 +87,20 @@ export default function DashboardShell({ title, description, children }: Dashboa
             ))}
           </nav>
 
-          <div className="mt-8 rounded-2xl bg-gradient-to-br from-amber-50 to-amber-100/40 border border-amber-200/60 p-5 text-sm shadow-sm hover:shadow-md transition">
-            <p className="font-bold text-slate-900 font-syne">Dashboard help</p>
-            <p className="mt-2 text-slate-600 text-xs leading-relaxed">Use the sidebar to access registry sections and open help for quick guidance.</p>
+          <div className="mt-8 rounded-2xl bg-gradient-to-br from-amber-100/60 via-amber-50/40 to-orange-50/30 border border-amber-300/40 p-5 text-sm shadow-sm hover:shadow-md transition">
+            <div className="flex items-start gap-3">
+              <span className="w-2 h-2 rounded-full bg-amber-500 mt-1.5 flex-shrink-0 animate-pulse" />
+              <div>
+                <p className="font-bold text-slate-900 font-syne">Dashboard help</p>
+                <p className="mt-2 text-slate-600 text-xs leading-relaxed">Use the sidebar to access registry sections and open help for quick guidance.</p>
+              </div>
+            </div>
           </div>
 
           <button
             type="button"
             onClick={handleLogout}
-            className="mt-8 w-full rounded-2xl border border-amber-200 bg-white px-4 py-3 text-sm font-bold text-slate-700 transition hover:bg-amber-50/50 hover:border-amber-300 hover:text-slate-900"
+            className="mt-8 w-full rounded-2xl border-2 border-amber-400 bg-gradient-to-r from-white to-amber-50/40 px-4 py-3 text-sm font-bold text-slate-700 transition hover:bg-amber-100/40 hover:border-amber-500 hover:text-slate-900 hover:shadow-md"
           >
             Sign out
           </button>
