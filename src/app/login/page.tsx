@@ -30,7 +30,7 @@ export default function LoginPage() {
       return;
     }
 
-    router.push('/dashboard');
+    router.push('/add');
   }
 
   const majorAngles = Array.from({ length: 8 }, (_, i) => i * 45);
