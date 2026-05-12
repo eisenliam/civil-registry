@@ -95,15 +95,24 @@ export default function DashboardShell({ title, description, children }: Dashboa
         </aside>
 
         <main className="flex-1 p-6 lg:p-8">
-          <div className="mb-8 rounded-[2rem] bg-white p-6 shadow-sm">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <h2 className="text-3xl font-semibold text-slate-900">{title}</h2>
-                <p className="mt-2 text-sm text-slate-600">{description}</p>
+          <style>{`
+            @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Serif+Display:ital@0;1&family=Syne:wght@600;700;800&display=swap');
+            .font-barlow  { font-family: 'Barlow Condensed', sans-serif; }
+            .font-syne    { font-family: 'Syne', sans-serif; }
+            .font-dm-serif { font-family: 'DM Serif Display', serif; }
+          `}</style>
+          <div className="mb-8 rounded-[2rem] bg-gradient-to-br from-white to-slate-50 p-8 shadow-sm border border-slate-100">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+              <div className="flex-1">
+                <p className="text-xs uppercase tracking-[0.2em] text-amber-600 font-syne font-700 mb-3">Navigation</p>
+                <h2 className="text-4xl font-900 text-slate-900 font-barlow uppercase leading-tight tracking-tight">{title}</h2>
+                <p className="mt-3 text-sm text-slate-600 font-syne">{description}</p>
               </div>
-              <div className="inline-flex flex-col gap-2 rounded-2xl bg-slate-50 px-4 py-3 text-sm text-slate-700 shadow-inner sm:flex-row sm:items-center">
-                <span className="inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
-                <span>{user ? `Signed in as ${user.username}` : 'Loading user...'}</span>
+              <div className="inline-flex flex-col gap-3 rounded-2xl bg-white border border-amber-100 px-5 py-4 text-sm shadow-sm hover:shadow-md transition sm:flex-row sm:items-center sm:gap-4">
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="font-syne font-700 text-xs uppercase tracking-wide text-slate-600">{user ? `Signed in as ${user.username}` : 'Loading user...'}</span>
+                </div>
               </div>
             </div>
           </div>
