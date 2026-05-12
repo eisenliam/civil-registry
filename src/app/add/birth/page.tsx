@@ -81,30 +81,30 @@ export default function AddBirthRecordPage() {
 
   return (
     <DashboardShell title="Birth Registration" description="Form 1A - Enter all required information for a new birth record.">
-      <form onSubmit={handleSubmit} className="space-y-6 rounded-[2rem] bg-white p-8 shadow-sm">
-        {message && <p className="rounded-2xl bg-emerald-50 px-4 py-3 text-sm text-emerald-700 font-semibold">{message}</p>}
-        {error && <p className="rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-700 font-semibold">{error}</p>}
+      <form onSubmit={handleSubmit} className="space-y-6 rounded-[2rem] bg-gradient-to-br from-white via-amber-50/20 to-slate-50/30 p-8 shadow-sm border border-amber-100/50">
+        {message && <p className="rounded-2xl bg-gradient-to-r from-emerald-50 to-emerald-50/40 px-4 py-3 text-sm text-emerald-700 font-bold border border-emerald-200/50 flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-emerald-500"></span>{message}</p>}
+        {error && <p className="rounded-2xl bg-gradient-to-r from-red-50 to-red-50/40 px-4 py-3 text-sm text-red-700 font-bold border border-red-200/50 flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-red-500"></span>{error}</p>}
 
-        <section className="space-y-4 border-t border-slate-200 pt-6">
-          <h3 className="text-lg font-semibold text-slate-900">Birth Information</h3>
+        <section className="space-y-4 border-t-2 border-amber-200/50 pt-6 pl-4 relative before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-amber-400 before:to-amber-300 before:rounded-l">
+          <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-amber-500"></span>Birth Information</h3>
           <div className="grid gap-6 lg:grid-cols-2">
             <label className="space-y-2">
-              <span className="text-sm font-semibold text-slate-700">Registry Number *</span>
-              <input name="registryNumber" value={form.registryNumber} onChange={handleChange} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none" placeholder="BR-2026-0001" required />
+              <span className="text-sm font-bold text-slate-900">Registry Number *</span>
+              <input name="registryNumber" value={form.registryNumber} onChange={handleChange} className="w-full rounded-2xl border-2 border-amber-200/60 bg-gradient-to-r from-white to-amber-50/20 px-4 py-3 outline-none focus:border-amber-400 focus:shadow-md transition" placeholder="BR-2026-0001" required />
             </label>
             <label className="space-y-2">
-              <span className="text-sm font-semibold text-slate-700">Registration Date *</span>
-              <input name="registrationDate" type="date" value={form.registrationDate} onChange={handleChange} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none" required />
+              <span className="text-sm font-bold text-slate-900">Registration Date *</span>
+              <input name="registrationDate" type="date" value={form.registrationDate} onChange={handleChange} className="w-full rounded-2xl border-2 border-amber-200/60 bg-gradient-to-r from-white to-amber-50/20 px-4 py-3 outline-none focus:border-amber-400 focus:shadow-md transition" required />
             </label>
           </div>
           <div className="grid gap-6 lg:grid-cols-2">
             <label className="space-y-2">
-              <span className="text-sm font-semibold text-slate-700">Child's Name *</span>
-              <input name="childName" value={form.childName} onChange={handleChange} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none" placeholder="Full name" required />
+              <span className="text-sm font-bold text-slate-900">Child's Name *</span>
+              <input name="childName" value={form.childName} onChange={handleChange} className="w-full rounded-2xl border-2 border-amber-200/60 bg-gradient-to-r from-white to-amber-50/20 px-4 py-3 outline-none focus:border-amber-400 focus:shadow-md transition" placeholder="Full name" required />
             </label>
             <label className="space-y-2">
-              <span className="text-sm font-semibold text-slate-700">Sex *</span>
-              <select name="childSex" value={form.childSex} onChange={handleChange} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none" required>
+              <span className="text-sm font-bold text-slate-900">Sex *</span>
+              <select name="childSex" value={form.childSex} onChange={handleChange} className="w-full rounded-2xl border-2 border-amber-200/60 bg-gradient-to-r from-white to-amber-50/20 px-4 py-3 outline-none focus:border-amber-400 focus:shadow-md transition" required>
                 <option value="">Select sex</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -113,18 +113,18 @@ export default function AddBirthRecordPage() {
           </div>
           <div className="grid gap-6 lg:grid-cols-2">
             <label className="space-y-2">
-              <span className="text-sm font-semibold text-slate-700">Date of Birth *</span>
-              <input name="dateOfBirth" type="date" value={form.dateOfBirth} onChange={handleChange} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none" required />
+              <span className="text-sm font-bold text-slate-900">Date of Birth *</span>
+              <input name="dateOfBirth" type="date" value={form.dateOfBirth} onChange={handleChange} className="w-full rounded-2xl border-2 border-amber-200/60 bg-gradient-to-r from-white to-amber-50/20 px-4 py-3 outline-none focus:border-amber-400 focus:shadow-md transition" required />
             </label>
             <label className="space-y-2">
-              <span className="text-sm font-semibold text-slate-700">Place of Birth *</span>
-              <input name="placeOfBirth" value={form.placeOfBirth} onChange={handleChange} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none" placeholder="Hospital, city, or municipality" required />
+              <span className="text-sm font-bold text-slate-900">Place of Birth *</span>
+              <input name="placeOfBirth" value={form.placeOfBirth} onChange={handleChange} className="w-full rounded-2xl border-2 border-amber-200/60 bg-gradient-to-r from-white to-amber-50/20 px-4 py-3 outline-none focus:border-amber-400 focus:shadow-md transition" placeholder="Hospital, city, or municipality" required />
             </label>
           </div>
         </section>
 
-        <section className="space-y-4 border-t border-slate-200 pt-6">
-          <h3 className="text-lg font-semibold text-slate-900">Father's Information</h3>
+        <section className="space-y-4 border-t-2 border-amber-200/50 pt-6 pl-4 relative before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-amber-400 before:to-amber-300 before:rounded-l">
+          <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-amber-500"></span>Father's Information</h3>
           <div className="grid gap-6 lg:grid-cols-2">
             <label className="space-y-2">
               <span className="text-sm font-semibold text-slate-700">Father's Name</span>
@@ -147,8 +147,8 @@ export default function AddBirthRecordPage() {
           </div>
         </section>
 
-        <section className="space-y-4 border-t border-slate-200 pt-6">
-          <h3 className="text-lg font-semibold text-slate-900">Mother's Information</h3>
+        <section className="space-y-4 border-t-2 border-amber-200/50 pt-6 pl-4 relative before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-amber-400 before:to-amber-300 before:rounded-l">
+          <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-amber-500"></span>Mother's Information</h3>
           <div className="grid gap-6 lg:grid-cols-2">
             <label className="space-y-2">
               <span className="text-sm font-semibold text-slate-700">Mother's Name</span>
@@ -171,8 +171,8 @@ export default function AddBirthRecordPage() {
           </div>
         </section>
 
-        <section className="space-y-4 border-t border-slate-200 pt-6">
-          <h3 className="text-lg font-semibold text-slate-900">Informant & Attendant Information</h3>
+        <section className="space-y-4 border-t-2 border-amber-200/50 pt-6 pl-4 relative before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-amber-400 before:to-amber-300 before:rounded-l">
+          <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-amber-500"></span>Informant & Attendant Information</h3>
           <label className="space-y-2">
             <span className="text-sm font-semibold text-slate-700">Informant's Name</span>
             <input name="informantName" value={form.informantName} onChange={handleChange} className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none" placeholder="Full name" />
