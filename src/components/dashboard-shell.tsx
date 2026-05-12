@@ -55,11 +55,16 @@ export default function DashboardShell({ title, description, children }: Dashboa
   return (
     <div className="min-h-screen bg-slate-100 text-slate-900">
       <div className="mx-auto flex min-h-screen max-w-7xl flex-col lg:flex-row">
-        <aside className="w-full border-b border-slate-200 bg-white p-5 shadow-sm lg:w-80 lg:border-r lg:border-b-0">
-          <div className="mb-8 flex items-center justify-between gap-3">
+        <aside className="w-full border-b border-amber-100 bg-gradient-to-br from-white to-amber-50/30 p-5 shadow-sm lg:w-80 lg:border-r lg:border-b-0">
+          <style>{`
+            @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Syne:wght@600;700;800&display=swap');
+            .font-syne { font-family: 'Syne', sans-serif; }
+            .font-barlow { font-family: 'Barlow Condensed', sans-serif; }
+          `}</style>
+          <div className="mb-8 flex items-center justify-between gap-3 pl-3 border-l-3 border-amber-400">
             <div>
-              <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Civil Registry</p>
-              <h1 className="mt-2 text-2xl font-semibold text-slate-900">Operations</h1>
+              <p className="text-xs uppercase tracking-[0.2em] text-amber-600 font-syne font-800">Civil Registry</p>
+              <h1 className="mt-2 text-3xl font-900 text-slate-900 font-barlow tracking-tight">Operations</h1>
             </div>
           </div>
 
@@ -70,25 +75,25 @@ export default function DashboardShell({ title, description, children }: Dashboa
                 href={item.href}
                 className={`block rounded-2xl border px-4 py-3 text-sm transition ${
                   isActive(item.href)
-                    ? 'border-primary bg-primary/10 text-slate-900 shadow-sm'
-                    : 'border-transparent text-slate-700 hover:border-slate-300 hover:bg-slate-50'
+                    ? 'border-amber-300 bg-amber-50/50 text-slate-900 shadow-sm hover:shadow-md'
+                    : 'border-transparent text-slate-700 hover:border-amber-200 hover:bg-amber-50/30'
                 }`}
               >
-                <div className="font-medium">{item.label}</div>
+                <div className="font-bold font-syne">{item.label}</div>
                 <p className="mt-1 text-xs text-slate-500">{item.description}</p>
               </Link>
             ))}
           </nav>
 
-          <div className="mt-8 rounded-3xl bg-slate-50 p-5 text-sm text-slate-700 shadow-sm">
-            <p className="font-semibold text-slate-900">Dashboard help</p>
-            <p className="mt-2 text-slate-600">Use the sidebar to access registry sections and open help for quick guidance.</p>
+          <div className="mt-8 rounded-2xl bg-gradient-to-br from-amber-50 to-amber-100/40 border border-amber-200/60 p-5 text-sm shadow-sm hover:shadow-md transition">
+            <p className="font-bold text-slate-900 font-syne">Dashboard help</p>
+            <p className="mt-2 text-slate-600 text-xs leading-relaxed">Use the sidebar to access registry sections and open help for quick guidance.</p>
           </div>
 
           <button
             type="button"
             onClick={handleLogout}
-            className="mt-8 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+            className="mt-8 w-full rounded-2xl border border-amber-200 bg-white px-4 py-3 text-sm font-bold text-slate-700 transition hover:bg-amber-50/50 hover:border-amber-300 hover:text-slate-900"
           >
             Sign out
           </button>
@@ -104,14 +109,14 @@ export default function DashboardShell({ title, description, children }: Dashboa
           <div className="mb-8 rounded-[2rem] bg-gradient-to-br from-white to-slate-50 p-8 shadow-sm border border-slate-100">
             <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex-1">
-                <p className="text-xs uppercase tracking-[0.2em] text-amber-600 font-syne font-700 mb-3">Navigation</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-amber-600 font-syne font-800 mb-3">Navigation</p>
                 <h2 className="text-4xl font-900 text-slate-900 font-barlow uppercase leading-tight tracking-tight">{title}</h2>
-                <p className="mt-3 text-sm text-slate-600 font-syne">{description}</p>
+                <p className="mt-3 text-sm text-slate-600 font-syne font-700">{description}</p>
               </div>
               <div className="inline-flex flex-col gap-3 rounded-2xl bg-white border border-amber-100 px-5 py-4 text-sm shadow-sm hover:shadow-md transition sm:flex-row sm:items-center sm:gap-4">
                 <div className="flex items-center gap-2">
                   <span className="inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="font-syne font-700 text-xs uppercase tracking-wide text-slate-600">{user ? `Signed in as ${user.username}` : 'Loading user...'}</span>
+                  <span className="font-syne font-800 text-xs uppercase tracking-wide text-slate-600">{user ? `Signed in as ${user.username}` : 'Loading user...'}</span>
                 </div>
               </div>
             </div>
