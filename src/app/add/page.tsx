@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import DashboardShell from '@/components/dashboard-shell';
-import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
 const recordTypes = [
@@ -35,19 +34,35 @@ export default function AddRecordPage() {
           transform: translateY(-3px);
           box-shadow: 0 12px 32px -8px rgba(0,0,0,0.07);
         }
+        .form-btn {
+          transition: background 0.15s ease, transform 0.15s ease;
+        }
+        .form-btn:hover {
+          background-color: #f59e0b;
+          transform: translateY(-1px);
+        }
+        .form-btn:active {
+          transform: scale(0.97);
+        }
       `}</style>
 
       <DashboardShell title="Add Record" description="Choose a record type and fill in the matching form.">
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4">
           {recordTypes.map((record) => (
-            <div key={record.href} className="flex flex-col gap-2">
-              <div className="flex items-center gap-2 mb-2">
+            <section
+              key={record.href}
+              className="record-card rounded-[2rem] bg-white shadow-sm px-8 py-6"
+            >
+              {/* Eyebrow */}
+              <div className="flex items-center gap-2 mb-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                 <span className="font-syne text-[11px] font-semibold tracking-[.18em] uppercase text-amber-500">
                   {record.eyebrow}
                 </span>
               </div>
-              <div className="flex items-center justify-between gap-4">
+
+              {/* Heading + Button row */}
+              <div className="flex items-center justify-between gap-6">
                 <div className="flex flex-col">
                   <h3 className="font-barlow text-4xl font-black uppercase text-slate-900 leading-none">
                     {record.title}
@@ -56,21 +71,16 @@ export default function AddRecordPage() {
                     Registration
                   </span>
                 </div>
-                <Link href={record.href}>
-                  <Button
-                    variant="ghost"
-                    className="font-syne shrink-0 pl-0 text-amber-500 hover:text-amber-600 hover:bg-transparent font-bold text-[13px] gap-2 group"
-                  >
-                    <span className="flex items-center gap-2">
-                      Open form
-                      <span className="w-7 h-7 rounded-full bg-amber-50 flex items-center justify-center group-hover:translate-x-1 transition-transform">
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </span>
-                    </span>
-                  </Button>
+
+                <Link
+                  href={record.href}
+                  className="form-btn font-syne shrink-0 inline-flex items-center gap-2 bg-amber-400 text-white text-sm font-bold px-5 py-2.5 rounded-xl"
+                >
+                  Open form
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-            </div>
+            </section>
           ))}
         </div>
       </DashboardShell>
