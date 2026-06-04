@@ -14,31 +14,31 @@ type StoredUser = AuthUser & {
 const users: StoredUser[] = [
   {
     id: 'user-1',
-    username: 'admin',
-    name: 'System Administrator',
+    username: 'Uno',
+    name: 'Uno User',
     role: 'admin',
-    passwordHash: '$2b$10$6rT1mtAiYrRsLQ5dO1NjJOC8LhRI2OcgTfrTX9EfZupFWlaKLVT3u',
+    passwordHash: '$2b$10$lWwzm7sTJF2EZCL.Nxwdju0.NMQzueiZ1Up0Vq2a1SN.41FSXrCPu',
   },
   {
     id: 'user-2',
-    username: 'registrar',
-    name: 'Registrar Officer',
+    username: 'Dos',
+    name: 'Dos User',
     role: 'registrar',
-    passwordHash: '$2b$10$E7WIZYUD7MHbZ15YXOO9XOYSeaKo4SARD/w1ZJBgz10q1sYQsV4HK',
+    passwordHash: '$2b$10$Dkb7x0Cc4gyBEgUnpj5uKOohDPhvcYE69nr1Kpjn.3v.aY5Hf2sfe',
   },
   {
     id: 'user-3',
-    username: 'clerk',
-    name: 'Registry Clerk',
+    username: 'Tres',
+    name: 'Tres User',
     role: 'clerk',
-    passwordHash: '$2b$10$An9yEsNntrf.GcNsbcDaW.HKg0nZ.TI6SKxVOyJKxtZXjUwZUdoNa',
+    passwordHash: '$2b$10$9d7bcUa9WXwXi0dchWn8T.St/1Ll8nF2C4oyutAm2yyFmP9UX3pni',
   },
   {
     id: 'user-4',
-    username: 'viewer',
-    name: 'Records Viewer',
+    username: 'Quatro',
+    name: 'Quatro User',
     role: 'viewer',
-    passwordHash: '$2b$10$sD/wfWRW4x0yigoT0sxJrOeatRzfZQ0uS2l2kvU0RHtN2w3hMb8q.',
+    passwordHash: '$2b$10$DhXJRr9GKHtRBPcUebbMu.zISshUKiXyaOO1t/xGVptLldNb.6v66',
   },
 ];
 
